@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PureFlow RO Water Solutions Ltd</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-white text-gray-700">
+
+<!-- NAVBAR -->
+<header class="bg-white shadow fixed w-full z-50">
+  <div class="max-w-7xl mx-auto py-3 px-6 flex justify-between items-center">
+    
+    <!-- Logo -->
+<div class="flex items-center">
+  <img 
+    src="asset/PureFlow logo - Edited.png" 
+    alt="PureFlow RO Logo" 
+    class="h-16 w-auto object-contain cursor-pointer hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-10 font-semibold text-sm md:text-xl text-gray-700">
+        <a href="#home" class="nav-link relative group">
+            Home
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+          </a>
+         <a href="#about" class="nav-link relative group">
+        About
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#services" class="nav-link relative group">
+        Services
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#contact" class="nav-link relative group">
+        Contact
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <div class="flex items-center space-x-4 relative">
+
+      <!-- Appointment Button -->
+      <button
+        id="calendarBtn"
+        type="button"
+        class="flex items-center bg-sky-400 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Appointment
+      </button>
+
+      <!-- Calendar Dropdown -->
+      <div
+        id="calendarDropdown"
+        class="absolute right-0 mt-2 w-72 bg-white shadow-lg rounded-lg p-4 hidden z-50"
+      >
+        <!-- Date Input with Icon -->
+        <div class="relative mb-3">
+          <input
+            type="text"
+            id="calendarDate"
+            readonly
+            class="w-full border rounded px-3 py-2 pr-10 cursor-pointer"
+            placeholder="MM/DD/YY"
+          />
+          <!-- Icon inside input -->
+          <span
+            id="calendarInputIcon"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          >
+            <i class="fas fa-calendar-alt"></i>
+          </span>
+          <!-- Native picker (hidden) -->
+          <input
+            type="date"
+            id="nativeDatePicker"
+            class="absolute inset-0 opacity-0 cursor-pointer"
+          />
+        </div>
+
+        <!-- Book Appointment -->
+        <button
+          id="openBookingModal"
+          type="button"
+          class="w-full bg-sky-400 text-white py-2 rounded-lg hover:bg-sky-600 transition-colors"
+        >
+          Book Appointment
+        </button>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="mb-6">
+    <label for="languageSwitcher" class="block text-gray-700 mb-2">Select Language:</label>
+    <select
+      id="languageSwitcher"
+      class="border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-400"
+    >
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ar">العربية</option>
+      <option value="hi">हिन्दी</option>
+      <option value="ru">Русский</option>
+      <option value="pt">Português</option>
+      <option value="it">Italiano</option>
+      <option value="ko">한국어</option>
+      <option value="tr">Türkçe</option>
+      <option value="nl">Nederlands</option>
+      <option value="sv">Svenska</option>
+    </select>
+  </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="pt-40 pb-20">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold text-darkblue mb-6">
+        Clean & Safe Drinking Water Solutions
+      </h2>
+      <p class="mb-6 text-lg">
+        Professional reverse osmosis water treatment services for homes, offices,
+        schools, hospitals, and businesses across Ghana.
+      </p>
+      <div class="flex flex-wrap gap-4">
+                <a id="heroBookingBtn" class="bg-sky-300 text-white px-6 py-3 rounded font-semibold hover:bg-sky-600 cursor-pointer">
+        Book an Appointment
+        </a>
+        <a href="#contact" class="border border-primary text-primary px-6 py-3 rounded font-semibold hover:bg-primary hover:text-white">
+          Contact Us
+        </a>
+      </div>
+    </div>
+    <div class="relative overflow-hidden">
+  <img
+    id="heroImage"
+    src="asset/pngimg.com - water_PNG50209.png"
+    alt="Water treatment"
+    class="w-full max-h-[420px] object-contain
+           transition-all duration-1000 ease-in-out
+           rounded-3xl shadow-lg
+           mix-blend-multiply opacity-90
+           hero-slide"
+  />
+</div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20">
+  <div class="max-w-7xl mx-auto px-4">
+    <h3 class="text-3xl font-bold text-center text-darkblue mb-12">Our Services</h3>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="p-6 border rounded-lg text-center hover:shadow-lg">
+        <i class="fas fa-tools text-primary text-3xl mb-4"></i>
+        <h4 class="font-bold mb-2">RO Installation</h4>
+        <p>Custom RO systems for homes, offices, and institutions.</p>
+      </div>
+
+      <div class="p-6 border rounded-lg text-center hover:shadow-lg">
+        <i class="fas fa-wrench text-primary text-3xl mb-4"></i>
+        <h4 class="font-bold mb-2">Maintenance & Servicing</h4>
+        <p>Routine servicing and repairs for RO systems.</p>
+      </div>
+
+      <div class="p-6 border rounded-lg text-center hover:shadow-lg">
+        <i class="fas fa-filter text-primary text-3xl mb-4"></i>
+        <h4 class="font-bold mb-2">Filters & Parts</h4>
+        <p>Supply and replacement of RO membranes and filters.</p>
+      </div>
+
+      <div class="p-6 border rounded-lg text-center hover:shadow-lg">
+        <i class="fas fa-flask text-primary text-3xl mb-4"></i>
+        <h4 class="font-bold mb-2">Water Testing</h4>
+        <p>Water quality analysis and treatment recommendations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h3 class="text-3xl font-bold text-darkblue mb-4">About PureFlow RO</h3>
+      <p class="mb-4">
+  PureFlow RO Water Solutions Ltd is dedicated to providing safe, reliable, and affordable access to clean drinking water. Leveraging advanced reverse osmosis technology, we design, install, and maintain high-quality water purification systems for homes, businesses, and institutions. Our solutions are built to ensure optimal water quality, efficiency, and long-term performance, empowering communities and organizations to enjoy consistent access to healthy water.
+</p>
+
+<p class="mb-4">
+  Our team of experts delivers personalized solutions tailored to each client’s unique water quality needs. We combine technical expertise with innovative approaches to solve complex water challenges, ensuring every installation meets the highest standards. From initial consultation to post-installation support, we are committed to delivering excellence and reliability in every project.
+</p>
+
+<p class="mb-4">
+  Sustainability, environmental responsibility, and community well-being are at the core of our operations. We educate clients on best practices, provide ongoing maintenance, and continuously seek innovative ways to improve water access and safety. By prioritizing customer satisfaction and public health, we aim to make a positive impact on communities now and for future generations.
+</p>
+
+    </div>
+    <div>
+      <img src="asset/filt.webp"
+           class="rounded-lg shadow w-full"
+           alt="RO system">
+    </div>
+  </div>
+</section>
+
+<!-- VALUES, MISSION & VISION -->
+<section id="values-mv" class="py-10 bg-gradient-to-r from-sky-50 to-white">
+  <div class="max-w-7xl mx-auto px-20 text-center">
+
+    <!-- Values Card -->
+    <div class="values-card p-6 border rounded-lg shadow-lg bg-white mb-20 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl opacity-0" id="valuesCard">
+      <i class="fas fa-gem text-primary text-5xl mb-4 hover:animate-bounce"></i>
+      <h4 class="text-2xl font-semibold mb-3">Our Values</h4>
+      <p class="text-gray-700">
+       "Guided by integrity, sustainability, and innovation, we are committed to delivering water solutions of the highest quality. Our focus on customer satisfaction drives every decision, ensuring reliable and impactful services. We strive to empower communities through access to safe drinking water, foster long-term partnerships built on trust, and uphold practices that protect both people and the environment. Excellence, accountability, and continuous improvement define our approach to creating a healthier and more sustainable future."
+      </p>
+    </div>
+
+    <!-- Mission & Vision Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Mission Card -->
+      <div class="mission-card p-6 border rounded-lg shadow-lg bg-white transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl opacity-0" id="missionCard">
+        <i class="fas fa-hand-holding-water text-primary text-5xl mb-4 hover:animate-bounce"></i>
+        <h4 class="text-2xl font-semibold mb-3">Mission</h4>
+        <p class="text-gray-700">
+          "To improve access to safe drinking water through reliable and affordable reverse osmosis technology."
+        </p>
+      </div>
+
+      <!-- Vision Card -->
+      <div class="vision-card p-6 border rounded-lg shadow-lg bg-white transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl opacity-0" id="visionCard">
+        <i class="fas fa-eye text-primary text-5xl mb-4 hover:animate-bounce"></i>
+        <h4 class="text-2xl font-semibold mb-3">Vision</h4>
+        <p class="text-gray-700">
+          "To become a leading and trusted water treatment company within five (5) years."  
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<!-- <section id="appointment" class="py-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <h3 class="text-3xl font-bold text-center text-darkblue mb-8">
+      Book an Appointment
+    </h3>
+
+    <form class="bg-white p-8 rounded-lg shadow space-y-4">
+      <input type="text" placeholder="Full Name" class="w-full border p-3 rounded" required>
+      <input type="email" placeholder="Email Address" class="w-full border p-3 rounded" required>
+      <input type="tel" placeholder="Phone Number" class="w-full border p-3 rounded" required>
+      <input type="date" class="w-full border p-3 rounded">
+      <textarea placeholder="Brief Description" rows="4" class="w-full border p-3 rounded"></textarea>
+      <button class="w-full bg-primary text-white py-3 rounded font-semibold hover:bg-sky-600">
+        Submit Appointment Request
+      </button>
+    </form>
+  </div>
+</section> -->
+
+<!-- Booking Modal (hidden by default) -->
+<div id="bookingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white rounded-lg p-8 relative w-96">
+    <button id="closeModal" class="absolute top-2 right-2 text-gray-700 text-2xl">&times;</button>
+    <h3 class="text-2xl font-bold mb-4 text-darkblue">Book Your Appointment</h3>
+    <form class="space-y-4">
+      <input type="text" placeholder="Full Name" class="w-full border p-3 rounded" required>
+      <input type="email" placeholder="Email Address" class="w-full border p-3 rounded" required>
+      <input type="tel" placeholder="Phone Number" class="w-full border p-3 rounded" required>
+      <input type="date" class="w-full border p-3 rounded" required>
+      <textarea placeholder="Brief Description" rows="4" class="w-full border p-3 rounded"></textarea>
+      <button class="w-full bg-primary text-white py-3 rounded font-semibold hover:bg-sky-600">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-sky-50 text-darkblue">
+  <div class="max-w-7xl mx-auto px-10">
+    <h3 class="text-3xl font-bold text-center mb-12">
+      Get in Touch
+    </h3>    
+
+    <div class="grid md:grid-cols-2 gap-20">
+      <!-- Map with Location Pin -->
+      <div class="relative rounded-lg overflow-hidden shadow-lg h-50 md:h-auto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.454411012152!2d-0.21862458472209268!3d5.605121596033309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf8cbd29c9f1b7%3A0x64f5674d17487f11!2sNii%20Amane%20Akwei%20Street%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1702191282191!5m2!1sen!2sgh"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <!-- Location Icon Overlay -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-full text-red-600 text-4xl">
+          <i class="fas fa-map-marker-alt drop-shadow-lg"></i>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="bg-white text-gray-700 p-8 rounded-lg shadow space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full border p-3 rounded focus:ring-2 focus:ring-primary focus:outline-none" required>
+        <input type="email" placeholder="Your Email" class="w-full border p-3 rounded focus:ring-2 focus:ring-primary focus:outline-none" required>
+        <textarea placeholder="Message" rows="4" class="w-full border p-3 rounded focus:ring-2 focus:ring-primary focus:outline-none" required></textarea>
+        <button class="w-50 bg-primary text-white px-6 py-3 rounded hover:bg-sky-600 font-semibold">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Floating Contact Bar -->
+<div class="fixed right-0 top-1/3 flex flex-col space-y-2 z-50">
+  <!-- Phone -->
+  <a href="tel:+233XXX" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-sky-600 transition-colors" title="Call Us">
+    <i class="fas fa-phone-alt text-xl"></i>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/233XXX" target="_blank" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-green-500 transition-colors" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp text-xl"></i>
+  </a>
+
+  <!-- Email -->
+  <a href="mailto:info@pureflowro.com" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-red-500 transition-colors" title="Send Email">
+    <i class="fas fa-envelope text-xl"></i>
+  </a>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-sky-600 transition-colors" title="Scroll to Top">
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white px-5 py-12 mt-24">
+  <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
+
+    <!-- Logo and Intro -->
+    <div class="flex-1 min-w-[400px]">
+      <img src="asset/PureFlow logo - Edited.png" alt="PureFlow RO Water Solutions Logo" class="w-4/5 mb-4 object-contain">
+      <p class="text-sm leading-relaxed">
+        PureFlow RO Water Solutions Ltd is committed to providing safe, affordable, and reliable drinking water 
+        in Ghana. We specialize in designing, installing, and maintaining high-quality reverse osmosis systems for homes and businesses.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="flex-1 min-w-[150px] ml-20">
+      <h3 class="mb-4 font-semibold text-lg">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-sky-500 transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-sky-500 transition-colors">About</a></li>
+        <li><a href="#services" class="hover:text-sky-500 transition-colors">Services</a></li>
+        <li><a href="#contact" class="hover:text-sky-500 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex flex-col min-w-[300px]">
+  <h3 class="mb-2 font-semibold text-lg">Contact Us</h3>
+
+  <ul class="space-y-2 text-sm">
+    <li>
+      <a href="tel:+233244185012" class="flex items-center gap-2 hover:text-sky-500 transition-colors">
+        <i class="fa-solid fa-phone"></i>
+        +233 244 185 012
+      </a>
+    </li>
+
+    <li>
+      <a href="https://wa.me/233247494088" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        +233 247 494 088
+      </a>
+    </li>
+
+    <li>
+      <a href="mailto:info@castorcareghana.com"
+         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
+        <i class="fa-solid fa-envelope"></i>
+        info@castorcareghana.com
+      </a>
+    </li>
+
+    <li>
+      <a href="https://maps.app.goo.gl/Lo3ogKrLVpQu8Ru99" target="_blank" rel="noopener noreferrer"
+         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
+        <i class="fa-solid fa-location-dot"></i>
+        117 Haatso-Atomic Rd, Accra, Ghana
+      </a>
+    </li>
+  </ul>
+
+  <p class="mt-4 text-sm">Follow us on</p>
+
+  <div class="flex gap-4 mt-2 text-lg">
+    <a href="https://www.facebook.com/share/19i8YXU3w4/" target="_blank" rel="noopener noreferrer"
+       class="hover:text-sky-500 transition-colors">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/castorcareghana" target="_blank" rel="noopener noreferrer"
+       class="hover:text-sky-500 transition-colors">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/company/castor-care-ghana-ltd" target="_blank" rel="noopener noreferrer"
+       class="hover:text-sky-500 transition-colors">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://www.tiktok.com/@castorcareghana" target="_blank" rel="noopener noreferrer"
+       class="hover:text-sky-500 transition-colors">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm">
+    <p>&copy; 2026 PureFlow RO Water Solutions Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
