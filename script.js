@@ -1,3 +1,4 @@
+// tailwind.config.js
 tailwind.config = {
   theme: {
     extend: {
@@ -9,6 +10,40 @@ tailwind.config = {
   }
 };
 
+// translation
+document.addEventListener("DOMContentLoaded", () => {
+  const switcher = document.getElementById("languageSwitcher");
+  if (!switcher) return;
+
+  switcher.addEventListener("change", () => {
+    const lang = switcher.value;
+    localStorage.setItem("siteLanguage", lang);
+
+    const interval = setInterval(() => {
+      const googleCombo = document.querySelector(".goog-te-combo");
+      if (googleCombo) {
+        googleCombo.value = lang;
+        googleCombo.dispatchEvent(new Event("change"));
+        clearInterval(interval);
+      }
+    }, 200);
+  });
+
+  // Load saved language on refresh
+  const savedLang = localStorage.getItem("siteLanguage");
+  if (savedLang && savedLang !== "en") {
+    const interval = setInterval(() => {
+      const googleCombo = document.querySelector(".goog-te-combo");
+      if (googleCombo) {
+        googleCombo.value = savedLang;
+        googleCombo.dispatchEvent(new Event("change"));
+        clearInterval(interval);
+      }
+    }, 300);
+  }
+});
+
+// modal functionality
 const openModalBtn = document.getElementById('openBookingModal');
 const closeModalBtn = document.getElementById('closeModal');
 const modal = document.getElementById('bookingModal');
@@ -39,13 +74,46 @@ if (modal) {
   });
 }
 
+// scroll to top
+// const scrollTopBtn = document.getElementById('scrollTopBtn');
+// if (scrollTopBtn) {
+//   scrollTopBtn.addEventListener('click', () => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   });
+// }
+
 const scrollTopBtn = document.getElementById('scrollTopBtn');
+
 if (scrollTopBtn) {
+  // Optional: toggle button text/icons
   scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (scrollPosition > 0) {
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // Scroll to bottom
+      window.scrollTo({ top: pageHeight, behavior: 'smooth' });
+    }
+  });
+
+  // Optional: Change button text based on position
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (scrollPosition > pageHeight / 2) {
+      scrollTopBtn.textContent = '↑'; // show scroll up
+    } else {
+      scrollTopBtn.textContent = '↓'; // show scroll down
+    }
   });
 }
 
+
+// calendar
 const calendarBtn = document.getElementById('calendarBtn');
 const calendarDropdown = document.getElementById('calendarDropdown');
 const calendarDate = document.getElementById('calendarDate');
@@ -91,6 +159,7 @@ const heroImages = [
   "asset/abuja-kidz.webp"
 ];
 
+// hero image slider
 const heroImgElement = document.getElementById("heroImage");
 let currentHeroIndex = 0;
 
@@ -108,92 +177,7 @@ if (heroImgElement && heroImages.length > 1) {
   }, 5000);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const languageSwitcher = document.getElementById("languageSwitcher");
-  if (!languageSwitcher) return;
-
-  const API_URL = "https://translate.argosopentech.com/translate";
-  const originalTexts = new Map();
-  const translationCache = new Map();
-
-  document.querySelectorAll("body *").forEach(el => {
-    if (el.closest("script") || el.closest("style") || el.id === "languageSwitcher") return;
-
-    if ((el.tagName === "INPUT" || el.tagName === "TEXTAREA") && el.placeholder?.trim()) {
-      originalTexts.set(el, el.placeholder.trim());
-    }
-
-    if ((el.tagName === "BUTTON" || el.tagName === "OPTION") && el.textContent.trim()) {
-      originalTexts.set(el, el.textContent.trim());
-    }
-
-    el.childNodes.forEach(node => {
-      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-        originalTexts.set(node, node.textContent.trim());
-      }
-    });
-  });
-
-  async function translateText(text, target) {
-    const key = `${text}|${target}`;
-    if (translationCache.has(key)) return translationCache.get(key);
-
-    try {
-      const body = new URLSearchParams({
-        q: text,
-        source: "en",
-        target: target,
-        format: "text"
-      });
-
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: body.toString()
-      });
-
-      const data = await res.json();
-      const translated = data.translatedText || text;
-      translationCache.set(key, translated);
-      return translated;
-
-    } catch {
-      return text;
-    }
-  }
-
-  async function translatePage(lang) {
-    if (lang === "en") {
-      originalTexts.forEach((text, node) => {
-        if (node.nodeType === Node.TEXT_NODE) node.textContent = text;
-        else if ("placeholder" in node) node.placeholder = text;
-        else node.textContent = text;
-      });
-      localStorage.setItem("siteLanguage", "en");
-      return;
-    }
-
-    for (let [node, text] of originalTexts.entries()) {
-      const translated = await translateText(text, lang);
-      if (node.nodeType === Node.TEXT_NODE) node.textContent = translated;
-      else if ("placeholder" in node) node.placeholder = translated;
-      else node.textContent = translated;
-    }
-
-    localStorage.setItem("siteLanguage", lang);
-  }
-
-  languageSwitcher.addEventListener("change", e => {
-    translatePage(e.target.value);
-  });
-
-  const savedLang = localStorage.getItem("siteLanguage") || "en";
-  languageSwitcher.value = savedLang;
-  if (savedLang !== "en") translatePage(savedLang);
-});
-
+// fade in on scroll
 const fadeElements = [
   document.getElementById('mvHeading'),
   document.getElementById('mvTagline'),
@@ -221,3 +205,64 @@ const observer = new IntersectionObserver(entries => {
 fadeElements.forEach(el => {
   if (el) observer.observe(el);
 });
+
+// Staggered fade-up animation for service cards
+const serviceCards = document.querySelectorAll(".service-card");
+const servicesHeading = document.getElementById("servicesHeading");
+
+const observerOptions = {
+  threshold: 0.2
+};
+
+const serviceObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Animate heading immediately
+      if (entry.target === servicesHeading) {
+        entry.target.classList.remove("opacity-0", "-translate-y-10");
+        entry.target.classList.add("opacity-100", "translate-y-0");
+      }
+
+      // Animate cards one after another
+      if (entry.target.classList.contains("service-card")) {
+        const cards = Array.from(serviceCards);
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.remove("opacity-0", "translate-y-10");
+            card.classList.add("opacity-100", "translate-y-0");
+          }, index * 1000); // 1s stagger
+        });
+      }
+
+      observer.unobserve(entry.target); // animate only once
+    }
+  });
+}, observerOptions);
+
+// Observe all cards and heading
+serviceCards.forEach(card => serviceObserver.observe(card));
+if (servicesHeading) serviceObserver.observe(servicesHeading);
+
+// Sequential fade-in for gallery cards
+const galleryCards = document.querySelectorAll(".gallery-card");
+
+const galleryObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Animate each card with a stagger
+      galleryCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.remove("opacity-0", "translate-y-10");
+          card.classList.add("opacity-100", "translate-y-0");
+        }, index * 200); // 200ms stagger per card
+      });
+
+      observer.unobserve(entry.target); // animate only once
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+// Observe the first card to trigger animation
+if (galleryCards.length) galleryObserver.observe(galleryCards[0]);
