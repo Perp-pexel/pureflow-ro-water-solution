@@ -156,7 +156,8 @@ const heroImages = [
   "asset/clean-water.jpg",
   "asset/CC-BF1005-Building.avif",
   "asset/water-flowing-from-pipe.jpeg",
-  "asset/abuja-kidz.webp"
+  "asset/abuja-kidz.webp",
+  "asset/p7.png"
 ];
 
 // hero image slider
@@ -266,3 +267,32 @@ const galleryObserver = new IntersectionObserver((entries, observer) => {
 
 // Observe the first card to trigger animation
 if (galleryCards.length) galleryObserver.observe(galleryCards[0]);
+
+
+  const animatedElements = document.querySelectorAll(
+    '.animate-on-scroll, .animate-left, .animate-right'
+  );
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove(
+            'opacity-0',
+            'translate-y-8',
+            '-translate-x-12',
+            'translate-x-12'
+          );
+          entry.target.classList.add(
+            'transition-all',
+            'duration-700',
+            'ease-out'
+          );
+          sectionObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  animatedElements.forEach(el => sectionObserver.observe(el));
