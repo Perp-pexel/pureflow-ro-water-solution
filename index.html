@@ -451,21 +451,32 @@
 
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-white px-5 py-12 mt-24">
-  <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-8">
+  <div
+    class="max-w-6xl mx-auto grid gap-10
+           grid-cols-1
+           sm:grid-cols-2
+           lg:grid-cols-3"
+  >
 
     <!-- Logo and Intro -->
-    <div class="flex-1 min-w-[400px]">
-      <img src="asset/PureFlow logo - Edited.png" alt="PureFlow RO Water Solutions Logo" class="w-4/5 mb-4 object-contain">
-      <p class="text-sm leading-relaxed">
-        PureFlow RO Water Solutions Ltd is committed to providing safe, affordable, and reliable drinking water 
-        in Ghana. We specialize in designing, installing, and maintaining high-quality reverse osmosis systems for homes and businesses.
+    <div>
+      <img
+        src="asset/PureFlow logo - Edited.png"
+        alt="PureFlow RO Water Solutions Logo"
+        class="w-3/4 sm:w-2/3 lg:w-4/5 mb-4 object-contain"
+      />
+      <p class="text-sm leading-relaxed max-w-md">
+        PureFlow RO Water Solutions Ltd is committed to providing safe, affordable,
+        and reliable drinking water in Ghana. We specialize in designing,
+        installing, and maintaining high-quality reverse osmosis systems for
+        homes and businesses.
       </p>
     </div>
 
     <!-- Quick Links -->
-    <div class="flex-1 min-w-[150px] ml-20">
+    <div>
       <h3 class="mb-4 font-semibold text-lg">Quick Links</h3>
-      <ul class="space-y-2">
+      <ul class="space-y-2 text-sm">
         <li><a href="#" class="hover:text-sky-500 transition-colors">Home</a></li>
         <li><a href="#about" class="hover:text-sky-500 transition-colors">About</a></li>
         <li><a href="#services" class="hover:text-sky-500 transition-colors">Services</a></li>
@@ -474,74 +485,70 @@
     </div>
 
     <!-- Contact Info -->
-    <div class="flex flex-col min-w-[300px]">
-  <h3 class="mb-2 font-semibold text-lg">Contact Us</h3>
+    <div>
+      <h3 class="mb-4 font-semibold text-lg">Contact Us</h3>
 
-  <ul class="space-y-2 text-sm">
-    <li>
-      <a href="tel:+233505195524" class="flex items-center gap-2 hover:text-sky-500 transition-colors">
-        <i class="fa-solid fa-phone"></i>
-        +233 505 195 524
-      </a>
-    </li>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="tel:+233505195524" class="flex items-center gap-2 hover:text-sky-500 transition-colors">
+            <i class="fa-solid fa-phone"></i>
+            +233 505 195 524
+          </a>
+        </li>
 
-    <li>
-      <a href="https://wa.me/233573295590" target="_blank" rel="noopener noreferrer"
-         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
-        <i class="fa-brands fa-whatsapp text-lg"></i>
-        +233 573 295 590
-      </a>
-    </li>
+        <li>
+          <a
+            href="https://wa.me/233573295590"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-sky-500 transition-colors"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            +233 573 295 590
+          </a>
+        </li>
 
-    <li>
-      <a href="mailto:info@google.com"
-         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
-        <i class="fa-solid fa-envelope"></i>
-        info@google.com
-      </a>
-    </li>
+        <li>
+          <a
+            href="mailto:info@google.com"
+            class="flex items-center gap-2 hover:text-sky-500 transition-colors"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            info@google.com
+          </a>
+        </li>
 
-    <li>
-      <a href="https://maps.app.goo.gl/Lo3ogKrLVpQu8Ru99" target="_blank" rel="noopener noreferrer"
-         class="flex items-center gap-2 hover:text-sky-500 transition-colors">
-        <i class="fa-solid fa-location-dot"></i>
-        Unknown, Accra, Ghana
-      </a>
-    </li>
-  </ul>
+        <li>
+          <a
+            href="https://maps.app.goo.gl/Lo3ogKrLVpQu8Ru99"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 hover:text-sky-500 transition-colors"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+            Accra, Ghana
+          </a>
+        </li>
+      </ul>
 
-  <p class="mt-4 text-sm">Follow us on</p>
+      <p class="mt-5 text-sm">Follow us on</p>
 
-  <div class="flex gap-4 mt-2 text-lg">
-    <a href="https://www.facebook.com/share/123456789/" target="_blank" rel="noopener noreferrer"
-       class="hover:text-sky-500 transition-colors">
-      <i class="fa-brands fa-facebook-f"></i>
-    </a>
-
-    <a href="https://www.instagram.com/123456789" target="_blank" rel="noopener noreferrer"
-       class="hover:text-sky-500 transition-colors">
-      <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/company/123456789" target="_blank" rel="noopener noreferrer"
-       class="hover:text-sky-500 transition-colors">
-      <i class="fa-brands fa-linkedin-in"></i>
-    </a>
-
-    <a href="https://www.tiktok.com/@123456789" target="_blank" rel="noopener noreferrer"
-       class="hover:text-sky-500 transition-colors">
-      <i class="fa-brands fa-tiktok"></i>
-    </a>
-  </div>
-</div>
+      <div class="flex gap-4 mt-2 text-lg">
+        <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="hover:text-sky-500 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
 
   </div>
 
   <!-- Bottom Footer -->
-  <div class="mt-10 pt-6 border-t border-gray-700 text-center text-sm">
+  <div class="mt-10 pt-6 border-t border-gray-700 text-center text-xs sm:text-sm">
     <p>&copy; 2026 PureFlow RO Water Solutions Ltd. All rights reserved.</p>
   </div>
 </footer>
+
 
 <div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-between items-center z-50">
   <p class="text-sm">
