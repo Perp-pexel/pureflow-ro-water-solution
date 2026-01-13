@@ -56,18 +56,22 @@
     <div class="flex items-center space-x-4 relative">
 
       <!-- Appointment Button -->
-      <button
-        id="calendarBtn"
-        type="button"
-        class="flex items-center bg-sky-400 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
-          viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        Appointment
-      </button>
+    <button
+      id="calendarBtn"
+      type="button"
+      class="flex items-center justify-center bg-sky-400 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
+    >
+      <!-- Icon always -->
+      <svg xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 md:mr-2"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+
+      <!-- Text only on md+ -->
+      <span class="hidden md:inline">Appointment</span>
+    </button>
 
       <!-- Calendar Dropdown -->
       <div
@@ -108,7 +112,7 @@
         </button>
       </div>
 
-  <select id="languageSwitcher" class="p-2 rounded border">
+  <select id="languageSwitcher" class="p-1 text-sm md:p-2 md:text-base rounded border">
       <option value="en">English</option>
       <option value="fr">Français</option>
       <option value="es">Español</option>
@@ -125,6 +129,7 @@
       <option value="nl">Nederlands</option>
       <option value="sv">Svenska</option>
 </select>
+  </div>
   </div>
 </header>
 
@@ -403,27 +408,46 @@
 </section>
 
 <!-- Floating Contact Bar -->
-<div class="fixed right-0 top-1/3 flex flex-col space-y-2 z-50">
-  <!-- Phone -->
-  <a href="tel:+233505195524" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-purple-500 transition-colors" title="Call Us">
-    <i class="fas fa-phone-alt text-xl"></i>
-  </a>
+<!-- Floating Contact Wrapper -->
+<div class="fixed right-0 top-1/3 z-50 flex flex-col items-end">
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/233573295590" target="_blank" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-green-500 transition-colors" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp text-xl"></i>
-  </a>
-
-  <!-- Email -->
-  <a href="mailto:info@pureflowro.com" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-red-500 transition-colors" title="Send Email">
-    <i class="fas fa-envelope text-xl"></i>
-  </a>
-
-  <!-- Scroll to Top -->
-  <button id="scrollTopBtn" class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-sky-600 transition-colors" title="Scroll to Top">
-    <i class="fas fa-arrow-up text-lg"></i>
+  <!-- Toggle Button (Mobile Only) -->
+  <button id="toggleContact"
+    class="md:hidden bg-black text-white p-3 rounded-l-full shadow-lg mb-2 hover:bg-sky-600 transition-colors">
+    <i class="fas fa-chevron-left text-lg"></i>
   </button>
+
+  <!-- Contact Icons -->
+  <div id="contactIcons"
+    class="hidden md:flex flex-col space-y-2">
+
+    <!-- Phone -->
+    <a href="tel:+233505195524"
+      class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-purple-500 transition-colors">
+      <i class="fas fa-phone-alt text-xl"></i>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/233573295590" target="_blank"
+      class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-green-500 transition-colors">
+      <i class="fab fa-whatsapp text-xl"></i>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:info@pureflowro.com"
+      class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-red-500 transition-colors">
+      <i class="fas fa-envelope text-xl"></i>
+    </a>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTopBtn"
+      class="bg-black text-white p-3 rounded-l-full shadow-lg flex justify-center items-center hover:bg-sky-600 transition-colors">
+      <i class="fas fa-arrow-up text-lg"></i>
+    </button>
+
+  </div>
 </div>
+
 
 <!-- FOOTER -->
 <footer class="bg-gray-900 text-white px-5 py-12 mt-24">
@@ -518,6 +542,14 @@
     <p>&copy; 2026 PureFlow RO Water Solutions Ltd. All rights reserved.</p>
   </div>
 </footer>
+
+<div id="cookieConsent" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-between items-center z-50">
+  <p class="text-sm">
+    We use cookies to improve your experience. By using our site, you agree to our <a href="/privacy.html" target="_blank" class="underline hover:text-sky-500">Privacy Policy</a>.
+  </p>
+  <button id="acceptCookies" class="bg-blue-500 px-4 py-2 rounded">Accept</button>
+</div>
+
 </body>
 <!-- Google Translate container -->
 <div id="google_translate_element" class="hidden"></div>

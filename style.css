@@ -34,3 +34,25 @@ h3 {
 body {
   top: 0 !important;
 }
+
+
+#cookieConsent {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#cookieConsent button {
+  background-color: #4cafaf;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

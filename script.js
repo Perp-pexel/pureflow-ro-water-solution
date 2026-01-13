@@ -112,6 +112,14 @@ if (scrollTopBtn) {
   });
 }
 
+const toggleBtn = document.getElementById("toggleContact");
+const contactIcons = document.getElementById("contactIcons");
+
+toggleBtn.addEventListener("click", () => {
+  contactIcons.classList.toggle("hidden");
+});
+
+
 
 // calendar
 const calendarBtn = document.getElementById('calendarBtn');
@@ -150,6 +158,9 @@ window.addEventListener('click', (e) => {
 });
 
 setToday();
+
+// language translation
+
 
 const heroImages = [
   "asset/pngimg.com - water_PNG50209.png",
@@ -296,3 +307,19 @@ if (galleryCards.length) galleryObserver.observe(galleryCards[0]);
   );
 
   animatedElements.forEach(el => sectionObserver.observe(el));
+
+  // cookie consent
+  document.addEventListener("DOMContentLoaded", function() {
+  const consent = localStorage.getItem("cookieConsent");
+  const banner = document.getElementById("cookieConsent");
+  const btn = document.getElementById("acceptCookies");
+
+  if (!consent) {
+    banner.classList.add("show");
+  }
+
+  btn.addEventListener("click", function() {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+  });
+});
